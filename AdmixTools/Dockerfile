@@ -4,6 +4,7 @@ LABEL mantainer="André M. Ribeiro dos Santos <andremrsantos@gmail.com>"
 
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends \
+        graphviz \
         wget \
         build-essential \
         libopenblas-dev \
