@@ -8,10 +8,10 @@ RUN apk add --no-cache --update-cache \
 	&& pip --no-cache-dir install cython numpy scipy \
 	&& git clone https://github.com/rajanil/fastStructure.git \
 	&& cd /fastStructure/vars \
-	&& python setup.py build_ext --inplace \
+	&& python setup.py install \
 	&& cd /fastStructure \
-	&& python setup.py build_ext --inplace
+	&& python setup.py install
 
 WORKDIR /fastStructure
 
-CMD ["/bin/sh", "-c"]
+CMD ["/bin/sh"]
