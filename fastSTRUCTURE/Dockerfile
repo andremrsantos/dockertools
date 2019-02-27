@@ -5,12 +5,13 @@ MAINTAINER AM Ribeiro-dos-Santos <andremrsantos@gmail.com>
 RUN apk add --no-cache --update-cache \
 		gcc build-base gsl-dev git \
 		openblas-dev freetype-dev pkgconfig gfortran \
-	&& pip --no-cache-dir install cython numpy scipy \
-	&& git clone https://github.com/rajanil/fastStructure.git \
+	&& pip --no-cache-dir install cython==0.27.3 numpy scipy
+
+RUN git clone https://github.com/rajanil/fastStructure.git \
 	&& cd /fastStructure/vars \
-	&& python setup.py install \
+	&& python setup.py build_ext --inplace \
 	&& cd /fastStructure \
-	&& python setup.py install
+	&& python setup.py build_ext --inplace
 
 WORKDIR /fastStructure
 
